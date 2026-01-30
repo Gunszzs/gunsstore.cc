@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Insanesec</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <style>
+        .checkout-page { margin-top: 120px; padding: 20px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+        .summary-box { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 15px; padding: 20px; margin-bottom: 30px; }
+        .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .payment-card { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); padding: 25px; border-radius: 15px; text-align: center; transition: 0.3s; }
+        .payment-card:hover { border-color: #d4af37; background: rgba(255, 255, 255, 0.08); }
+        .payment-card h3 { color: #d4af37; margin-bottom: 15px; font-size: 1.1rem; }
+        .address-box { background: #000; padding: 10px; border-radius: 5px; font-family: monospace; font-size: 0.8rem; word-break: break-all; margin-top: 10px; color: #aaa; }
+        .pay-btn { display: block; width: 100%; padding: 12px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; cursor: pointer; border: none; }
+        .rev-btn { background: #fff; color: #000; }
+        .pp-btn { background: #0070ba; color: #fff; }
+        .btc-btn { background: #f7931a; color: #fff; }
+        .ltc-btn { background: #345d9d; color: #fff; }
+        .discord-btn { background: #5865F2; color: #fff; display: inline-block; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .discord-btn:hover { background: #4752C4; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">INSANESEC</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Return to Store</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="checkout-page">
+        <h1 class="section-title">Finalize <span class="gold-text">Purchase</span></h1>
+
+        <div class="summary-box">
+            <h3>Order Summary</h3>
+            <div id="checkout-summary-items" style="margin: 15px 0;"></div>
+            <div style="font-size: 1.5rem; font-weight: bold; border-top: 1px solid var(--glass-border); padding-top: 15px;">
+                Total: <span class="gold-text" id="checkout-total">€0.00</span>
+            </div>
+        </div>
+
+        <div class="payment-grid">
+            <div class="payment-card" data-tilt>
+                <h3>PayPal</h3>
+                <p style="font-size: 0.8rem; margin-bottom: 10px;">Fast and secure payment.</p>
+                <button class="pay-btn pp-btn" onclick="window.open('https://www.paypal.com/pools/c/9lZcon8aFx', '_blank')">PayPal</button>
+            </div>
+
+            <div class="payment-card" data-tilt>
+                <h3>Bitcoin (BTC)</h3>
+                <div class="address-box" id="btc-address">34A4bJFd7QU34zP6r3vBSjw7hp2hSQZaHx</div>
+                <p style="font-size: 0.8rem; margin-top: 10px; margin-bottom: 10px;">Make Sure to Send the Exact Amount.</p>
+                <button class="pay-btn btc-btn" onclick="openBTCWallet(this)">Open in Wallet</button>
+            </div>
+
+            <div class="payment-card" data-tilt>
+                <h3>Litecoin (LTC)</h3>
+                <div class="address-box" id="ltc-address">MNnZmHx76W5ZXMY4mAg3uLswbrtv9WpRc6</div>
+                <p style="font-size: 0.8rem; margin-top: 10px; margin-bottom: 10px;">Make Sure to Send the Exact Amount.</p>
+                <button class="pay-btn ltc-btn" onclick="openLTCWallet(this)">Open in Wallet</button>
+            </div>
+
+            <div class="payment-card" data-tilt>
+                <h3>Revolut</h3>
+                <p style="font-size: 0.8rem; margin-bottom: 10px;">Instant bank transfer.</p>
+                <button class="pay-btn rev-btn" onclick="window.open('https://revolut.me/gunsz', '_blank')">Pay @gunsz</button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="color: #fff; font-size: 1.2rem; margin-bottom: 20px; font-weight: 500;">
+                After payment, please join this Discord server and create a ticket. (Make sure to screenshot purchase)
+            </p>
+            <a href="https://discord.gg/insanesec" target="_blank" class="discord-btn">Join Discord Server</a>
+        </div>
+    </main>
+
+    <script>
+        // Load cart data from localStorage
+        function loadCheckout() {
+            const cart = JSON.parse(localStorage.getItem('insanesec_cart')) || [];
+            const summaryContainer = document.getElementById('checkout-summary-items');
+            const totalLabel = document.getElementById('checkout-total');
+            let total = 0;
+
+            if(cart.length === 0) {
+                summaryContainer.innerHTML = "<p>Your cart is empty.</p>";
+                return;
+            }
+
+            cart.forEach(item => {
+                total += item.price;
+                const div = document.createElement('div');
+                div.style.display = "flex";
+                div.style.justifyContent = "space-between";
+                div.style.padding = "5px 0";
+                div.innerHTML = `<span>${item.name}</span><span>€${item.price.toFixed(2)}</span>`;
+                summaryContainer.appendChild(div);
+            });
+
+            totalLabel.innerText = `€${total.toFixed(2)}`;
+        }
+
+        // Bitcoin wallet functions
+        function openBTCWallet(button) {
+            const address = document.getElementById('btc-address').innerText.trim();
+            if (address && address.length > 0) {
+                // Try to open in wallet app using bitcoin: protocol
+                window.location.href = `bitcoin:${address}`;
+                // Also copy to clipboard as fallback
+                copyToClipboard(address, 'Bitcoin address', button);
+            } else {
+                alert('Please set a valid Bitcoin address first.');
+            }
+        }
+
+        function openLTCWallet(button) {
+            const address = document.getElementById('ltc-address').innerText.trim();
+            if (address && address.length > 0) {
+                // Try to open in wallet app using litecoin: protocol
+                window.location.href = `litecoin:${address}`;
+                // Also copy to clipboard as fallback
+                copyToClipboard(address, 'Litecoin address', button);
+            } else {
+                alert('Please set a valid Litecoin address first.');
+            }
+        }
+
+        function copyToClipboard(text, label, button) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show temporary feedback
+                if (button) {
+                    const originalText = button.innerText;
+                    button.innerText = 'Copied!';
+                    setTimeout(() => {
+                        button.innerText = originalText;
+                    }, 2000);
+                }
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert(`${label} copied to clipboard: ${text}`);
+            });
+        }
+
+        loadCheckout();
+    </script>
+</body>
+</html>
