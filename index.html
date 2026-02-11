@@ -109,6 +109,14 @@
         .product-link-card--large .card-content h3 { font-size: 1.6rem; margin-bottom: 8px; }
         .product-link-card--large .product-link-label { font-size: 1.1rem; margin-top: 0; }
         .product-link-label { display: block; margin-top: 12px; font-size: 0.9rem; font-weight: 600; color: var(--gold-solid); }
+
+        /* Promo banner - scrolling, below fixed nav */
+        .promo-banner { position: relative; z-index: 50; margin-top: 73px; background: linear-gradient(90deg, #1a1a1a 0%, #2d2416 50%, #1a1a1a 100%); border-bottom: 3px solid var(--gold-solid); padding: 22px 0; margin-bottom: 0; overflow: hidden; min-height: 72px; display: flex; align-items: center; }
+        .promo-banner-inner { display: inline-flex; white-space: nowrap; animation: scroll-banner 30s linear infinite; }
+        .promo-banner-inner span { font-weight: 700; font-size: 1.5rem; color: #fff; text-shadow: 0 0 20px rgba(212,175,55,0.5); }
+        .promo-banner-inner .promo-banner-link { color: var(--gold-solid); text-decoration: none; border-bottom: 1px solid var(--gold-solid); }
+        .promo-banner-inner .promo-banner-link:hover { filter: brightness(1.2); }
+        @keyframes scroll-banner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     </style>
 </head>
 <body>
@@ -131,6 +139,13 @@
             </ul>
         </nav>
     </header>
+
+    <div class="promo-banner" id="promo-banner">
+        <div class="promo-banner-inner">
+            <span>Friday The 13th Free Weekend On Rocket League RL Switch. Discord <a href="https://discord.gg/insanesec" target="_blank" rel="noopener noreferrer" class="promo-banner-link">https://discord.gg/insanesec</a> &nbsp;&nbsp;•&nbsp;&nbsp;</span>
+            <span>Friday The 13th Free Weekend On Rocket League RL Switch. Discord <a href="https://discord.gg/insanesec" target="_blank" rel="noopener noreferrer" class="promo-banner-link">https://discord.gg/insanesec</a> &nbsp;&nbsp;•&nbsp;&nbsp;</span>
+        </div>
+    </div>
 
     <main>
         <section id="home" class="hero-section">
