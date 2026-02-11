@@ -96,10 +96,19 @@
             border-color: #ffd700;
             background: rgba(255, 255, 255, 0.1);
         }
+        .view-products-link { display: inline-block; margin-top: 28px; font-size: 1.1rem; font-weight: 600; color: var(--gold-solid); text-decoration: none; transition: 0.2s; }
+        .view-products-link:hover { filter: brightness(1.2); }
         .discord-btn { color: #5865F2; }
         .telegram-btn { color: #0088cc; }
         .youtube-btn { color: #FF0000; }
         .tiktok-btn { color: #000000; }
+
+        .product-link-card { display: block; text-decoration: none; color: inherit; transition: 0.3s; }
+        .product-link-card:hover { transform: translateY(-4px); }
+        .product-link-card .card-content h3 { font-size: 1.25rem; }
+        .product-link-card--large .card-content h3 { font-size: 1.6rem; margin-bottom: 8px; }
+        .product-link-card--large .product-link-label { font-size: 1.1rem; margin-top: 0; }
+        .product-link-label { display: block; margin-top: 12px; font-size: 0.9rem; font-weight: 600; color: var(--gold-solid); }
     </style>
 </head>
 <body>
@@ -133,6 +142,41 @@
                     <a href="https://www.youtube.com/@Gunszzzs" target="_blank" class="social-btn youtube-btn" title="YouTube">▶️</a>
                     <a href="https://www.tiktok.com/@gunszzs" target="_blank" class="social-btn tiktok-btn" title="TikTok">🎵</a>
                 </div>
+                <a href="#products" class="view-products-link">View products</a>
+            </div>
+        </section>
+
+        <section id="products" class="product-section">
+            <h2 class="section-title">Our <span class="gold-text">Products</span></h2>
+            <div class="product-grid">
+                <a href="rlswitch.html" class="glass-card product-link-card product-link-card--large" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                    <div class="card-content">
+                        <div class="product-icon">🔑</div>
+                        <h3>RL Switch</h3>
+                        <span class="product-link-label">View plans Here</span>
+                    </div>
+                </a>
+                <a href="mw2switch.html" class="glass-card product-link-card product-link-card--large" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                    <div class="card-content">
+                        <div class="product-icon">🔑</div>
+                        <h3>MW2 Switch</h3>
+                        <span class="product-link-label">View plans Here</span>
+                    </div>
+                </a>
+                <a href="insanesec-c2.html" class="glass-card product-link-card product-link-card--large" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                    <div class="card-content">
+                        <div class="product-icon">📡</div>
+                        <h3>Insanesec C2</h3>
+                        <span class="product-link-label">View plans Here</span>
+                    </div>
+                </a>
+                <a href="Insanesecapi.html" class="glass-card product-link-card product-link-card--large" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                    <div class="card-content">
+                        <div class="product-icon">🔌</div>
+                        <h3>Insanesec API</h3>
+                        <span class="product-link-label">View plans Here</span>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -153,275 +197,6 @@
                     <span class="feature-icon">📦</span>
                     <h3>HUGE SELECTION</h3>
                     <p>A wide variety of plans tailored to your specific security needs.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="products" class="product-section">
-            <h2 class="section-title">Rocket League <span class="gold-text">RL Switch</span></h2>
-            <div class="product-grid">
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>RL Switch Week Key</h3>
-                        <p>Full access for 7 days.</p>
-                        <span class="price">€25.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>RL Switch Month Key</h3>
-                        <p>Full access for 30 days.</p>
-                        <span class="price">€50.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>RL Switch Lifetime Key</h3>
-                        <p>Unlimited permanent access.</p>
-                        <span class="price">€200.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="section-title" style="margin-top: 50px;">Rocket League <span class="gold-text">RL Switch Panel</span></h2>
-            <div class="product-grid">
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>RL Switch Panel Week Key</h3>
-                        <p>Full access for 7 days.</p>
-                        <span class="price">€25.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>RL Switch Panel Month Key</h3>
-                        <p>Full access for 30 days.</p>
-                        <span class="price">€50.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>RL Switch Panel Lifetime Key</h3>
-                        <p>Unlimited permanent access.</p>
-                        <span class="price">€200.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="mw2-switch" class="product-section">
-            <h2 class="section-title">MW2 <span class="gold-text">Switch</span></h2>
-            <div class="product-grid">
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>MW2 Switch Week Key</h3>
-                        <p>Full access for 7 days.</p>
-                        <span class="price">€20.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>MW2 Switch Month Key</h3>
-                        <p>Full access for 30 days.</p>
-                        <span class="price">€40.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔑</div>
-                        <h3>MW2 Switch Lifetime Key</h3>
-                        <p>Unlimited permanent access.</p>
-                        <span class="price">€175.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="c2-plans" class="product-section">
-            <h2 class="section-title">Insanesec <span class="gold-text">C2 Plans</span></h2>
-            <div class="product-grid">
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">📡</div>
-                        <h3>Monthly Plan #1</h3>
-                        <p>1 Conc | 60 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€20.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">📡</div>
-                        <h3>Monthly Plan #2</h3>
-                        <p>2 Concs | 120 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€30.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">📡</div>
-                        <h3>Monthly Plan #3</h3>
-                        <p>3 Concs | 200 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€45.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="section-title" style="margin-top: 50px;">Insanesec <span class="gold-text">Lifetime C2 Plans</span></h2>
-            <div class="product-grid lifetime-row">
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">♾️</div>
-                        <h3>C2 Lifetime #1</h3>
-                        <p>2 Concs | 60 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€120.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">♾️</div>
-                        <h3>C2 Lifetime #2</h3>
-                        <p>4 Concs | 120 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€175.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">♾️</div>
-                        <h3>C2 Lifetime #3</h3>
-                        <p>6 Concs | 300 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€225.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">♾️</div>
-                        <h3>C2 Lifetime #4</h3>
-                        <p>10 Concs | 300 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€300.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">👑</div>
-                        <h3>C2 Lifetime #5</h3>
-                        <p>10 Concs | 1200 Seconds | 0 Cooldown | All Methods | Homeholder Access</p>
-                        <span class="price">€500.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="api-plans" class="product-section">
-            <h2 class="section-title">Insanesec <span class="gold-text">Monthly API Plans</span></h2>
-            <div class="product-grid">
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🔌</div>
-                        <h3>API Monthly #1</h3>
-                        <p>1 Conc | 60 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€20.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">⚡</div>
-                        <h3>API Monthly #2</h3>
-                        <p>2 Concs | 120 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€30.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">🛡️</div>
-                        <h3>API Monthly #3</h3>
-                        <p>3 Concs | 200 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€45.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="section-title" style="margin-top: 50px;">Insanesec <span class="gold-text">Lifetime API Plans</span></h2>
-            <div class="product-grid lifetime-row">
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">⚡</div>
-                        <h3>API Lifetime #1</h3>
-                        <p>2 Concs | 60 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€120.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">⚡</div>
-                        <h3>API Lifetime #2</h3>
-                        <p>4 Concs | 120 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€175.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">⚡</div>
-                        <h3>API Lifetime #3</h3>
-                        <p>6 Concs | 300 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€225.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">⚡</div>
-                        <h3>API Lifetime #4</h3>
-                        <p>10 Concs | 300 Seconds | 0 Cooldown | All Methods</p>
-                        <span class="price">€300.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="glass-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
-                    <div class="card-content">
-                        <div class="product-icon">👑</div>
-                        <h3>API Lifetime #5</h3>
-                        <p>10 Concs | 1200 Seconds | 0 Cooldown | All Methods | Homeholder Access</p>
-                        <span class="price">€500.00</span>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
                 </div>
             </div>
         </section>

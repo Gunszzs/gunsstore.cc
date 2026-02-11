@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MW2 Switch | Insanesec</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <style>
+        .rlswitch-page { margin-top: 100px; padding: 40px 5%; max-width: 1100px; margin-left: auto; margin-right: auto; }
+        .rlswitch-layout { display: flex; gap: 48px; align-items: flex-start; flex-wrap: wrap; }
+        .rlswitch-left { flex: 0 1 420px; min-width: 0; }
+        .rlswitch-left .product-title { font-size: 1.75rem; font-weight: 600; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .uptime-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #22c55e; }
+        .uptime-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+        .tool-preview { margin: 20px 0 24px; }
+        .tool-preview img { width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: #111; }
+        .features-tab { margin-top: 24px; padding: 20px 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; }
+        .features-tab h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+        .features-tab p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.5; margin: 0; }
+        .rlswitch-right { flex: 1 1 340px; min-width: 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px 32px; }
+        .price-row { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+        .price-row .main-price { font-size: 2rem; font-weight: 700; color: #fff; }
+        .price-row .stock { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+        .variant-label, .quantity-label { font-size: 0.9rem; color: #fff; margin-bottom: 10px; display: block; }
+        .variant-options { display: flex; flex-direction: column; gap: 10px; }
+        .variant-option { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 14px 16px; background: rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; cursor: pointer; transition: 0.2s; }
+        .variant-option:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); }
+        .variant-option.selected { border-color: #d4af37; background: rgba(212,175,55,0.08); }
+        .variant-option .name { font-weight: 500; color: #fff; display: block; }
+        .variant-option .stock-small { font-size: 0.8rem; color: rgba(255,255,255,0.5); display: block; margin-top: 2px; }
+        .variant-option .price { font-weight: 600; color: var(--gold-solid); }
+        .quantity-row { margin: 24px 0; }
+        .quantity-control { display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; overflow: hidden; }
+        .quantity-control button { width: 44px; height: 44px; background: rgba(0,0,0,0.4); border: none; color: #fff; font-size: 1.2rem; cursor: pointer; transition: 0.2s; }
+        .quantity-control button:hover { background: rgba(255,255,255,0.1); }
+        .quantity-control input { width: 52px; height: 44px; text-align: center; font-size: 1rem; background: rgba(0,0,0,0.3); border: none; border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); color: #fff; }
+        .quantity-control input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        .quantity-control input[type=number] { -moz-appearance: textfield; }
+        .btn-add-cart { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 20px; background: linear-gradient(135deg, #d4af37 0%, #f9e2af 50%, #b8860b 100%); color: #0a0a0a; border: none; border-radius: 10px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s; margin-bottom: 12px; }
+        .btn-add-cart:hover { filter: brightness(1.1); }
+        .btn-buy-now { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 20px; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s; }
+        .btn-buy-now:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+        @media (max-width: 900px) { .rlswitch-layout { flex-direction: column; } .rlswitch-left { flex: 1 1 auto; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">INSANESEC</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="rlswitch-page">
+        <div class="rlswitch-layout">
+            <div class="rlswitch-left">
+                <h1 class="product-title">MW2 Switch <span class="uptime-badge">Uptime 100%</span></h1>
+                <div class="tool-preview">
+                    <img src="mw2switch.png" alt="MW2 Switch tool preview">
+                </div>
+                <div class="features-tab">
+                    <h3>Description</h3>
+                    <p>MW2 Switch gives you secure account switching for Call of Duty: Modern Warfare 2. Choose from Week, Month, or Lifetime keys for full access. Instant delivery after payment — start using the tool right away.</p>
+                </div>
+            </div>
+
+            <div class="rlswitch-right">
+                <div class="price-row">
+                    <span class="main-price" id="display-price">€20.00</span>
+                    <span class="stock" id="display-stock">In Stock</span>
+                </div>
+
+                <label class="variant-label">Variant</label>
+                <div class="variant-options">
+                    <div class="variant-option selected" data-name="MW2 Switch Week Key" data-price="20" data-stock="In Stock">
+                        <div>
+                            <span class="name">Week Key</span>
+                            <span class="stock-small">Full access for 7 days</span>
+                        </div>
+                        <span class="price">€20.00</span>
+                    </div>
+                    <div class="variant-option" data-name="MW2 Switch Month Key" data-price="40" data-stock="In Stock">
+                        <div>
+                            <span class="name">Month Key</span>
+                            <span class="stock-small">Full access for 30 days</span>
+                        </div>
+                        <span class="price">€40.00</span>
+                    </div>
+                    <div class="variant-option" data-name="MW2 Switch Lifetime Key" data-price="175" data-stock="In Stock">
+                        <div>
+                            <span class="name">Lifetime Key</span>
+                            <span class="stock-small">Unlimited permanent access</span>
+                        </div>
+                        <span class="price">€175.00</span>
+                    </div>
+                </div>
+
+                <div class="quantity-row">
+                    <label class="quantity-label">Quantity</label>
+                    <div class="quantity-control">
+                        <button type="button" id="qty-minus">−</button>
+                        <input type="number" id="qty-input" value="1" min="1" max="99">
+                        <button type="button" id="qty-plus">+</button>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-add-cart" id="btn-add-cart">Add to Cart 🛒</button>
+                <button type="button" class="btn-buy-now" id="btn-buy-now">Buy Now »</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Checkout</h3>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items-list"></div>
+        <div class="cart-footer">
+            <div class="total-container">
+                <span>Total:</span>
+                <span id="cart-total">€0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="goToCheckout()">Confirm Checkout</button>
+        </div>
+    </div>
+
+    <div id="cart-trigger" class="cart-trigger">
+        <span class="cart-icon">🛒</span>
+        <span id="cart-count" class="cart-count">0</span>
+    </div>
+
+    <footer><p>&copy; 2026 <span class="gold-text">INSANESEC</span></p></footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('insanesec_cart')) || [];
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartTrigger = document.getElementById('cart-trigger');
+        const closeCart = document.getElementById('close-cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalLabel = document.getElementById('cart-total');
+        const cartCountLabel = document.getElementById('cart-count');
+
+        cartTrigger.onclick = () => cartSidebar.classList.add('open');
+        closeCart.onclick = () => cartSidebar.classList.remove('open');
+
+        let selectedVariant = { name: 'MW2 Switch Week Key', price: 20, stock: 'In Stock' };
+        document.querySelectorAll('.variant-option').forEach(el => {
+            el.addEventListener('click', () => {
+                document.querySelectorAll('.variant-option').forEach(o => o.classList.remove('selected'));
+                el.classList.add('selected');
+                selectedVariant = {
+                    name: el.dataset.name,
+                    price: parseFloat(el.dataset.price),
+                    stock: el.dataset.stock
+                };
+                document.getElementById('display-price').textContent = '€' + selectedVariant.price.toFixed(2);
+                document.getElementById('display-stock').textContent = selectedVariant.stock;
+            });
+        });
+
+        const qtyInput = document.getElementById('qty-input');
+        document.getElementById('qty-minus').addEventListener('click', () => {
+            let v = parseInt(qtyInput.value, 10) || 1;
+            if (v > 1) qtyInput.value = v - 1;
+        });
+        document.getElementById('qty-plus').addEventListener('click', () => {
+            let v = parseInt(qtyInput.value, 10) || 1;
+            if (v < 99) qtyInput.value = v + 1;
+        });
+        qtyInput.addEventListener('change', () => {
+            let v = parseInt(qtyInput.value, 10);
+            if (isNaN(v) || v < 1) qtyInput.value = 1;
+            else if (v > 99) qtyInput.value = 99;
+        });
+
+        function addSelectedToCart() {
+            const qty = parseInt(qtyInput.value, 10) || 1;
+            for (let i = 0; i < qty; i++) {
+                cart.push({ name: selectedVariant.name, price: selectedVariant.price, symbol: '€' });
+            }
+            updateCart();
+        }
+
+        document.getElementById('btn-add-cart').addEventListener('click', () => {
+            addSelectedToCart();
+            cartSidebar.classList.add('open');
+        });
+        document.getElementById('btn-buy-now').addEventListener('click', () => {
+            addSelectedToCart();
+            localStorage.setItem('insanesec_cart', JSON.stringify(cart));
+            window.location.href = 'checkout.html';
+        });
+
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                const div = document.createElement('div');
+                div.style.cssText = "display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size: 0.9rem;";
+                div.innerHTML = '<span>' + item.name + '</span><div style="display:flex; align-items:center; gap:10px;"><span>' + item.symbol + item.price.toFixed(2) + '</span><button onclick="removeFromCart(' + index + ')" style="background:rgba(255,0,0,0.3); border:1px solid rgba(255,0,0,0.5); color:#fff; border-radius:5px; padding:5px 10px; cursor:pointer; font-size:0.8rem;">Remove</button></div>';
+                cartItemsContainer.appendChild(div);
+            });
+            cartTotalLabel.innerText = '€' + total.toFixed(2);
+            cartCountLabel.innerText = cart.length;
+            localStorage.setItem('insanesec_cart', JSON.stringify(cart));
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function goToCheckout() {
+            localStorage.setItem('insanesec_cart', JSON.stringify(cart));
+            window.location.href = 'checkout.html';
+        }
+
+        updateCart();
+    </script>
+</body>
+</html>
