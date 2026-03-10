@@ -12,18 +12,23 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <style>
-        .checkout-page { margin-top: 120px; padding: 20px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+        .checkout-page { margin-top: 120px; padding: 24px; max-width: 1500px; margin-left: auto; margin-right: auto; }
         .summary-box { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 15px; padding: 20px; margin-bottom: 30px; }
-        .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .payment-card { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); padding: 25px; border-radius: 15px; text-align: center; transition: 0.3s; }
+        .payment-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; align-items: stretch; }
+        @media (max-width: 1500px) { .payment-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (max-width: 900px) { .payment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 560px) { .payment-grid { grid-template-columns: 1fr; } }
+        .payment-card { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); padding: 18px 14px; border-radius: 15px; text-align: center; transition: 0.3s; min-height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
         .payment-card:hover { border-color: #d4af37; background: rgba(255, 255, 255, 0.08); }
-        .payment-card h3 { color: #d4af37; margin-bottom: 15px; font-size: 1.1rem; }
-        .address-box { background: #000; padding: 10px; border-radius: 5px; font-family: monospace; font-size: 0.8rem; word-break: break-all; margin-top: 10px; color: #aaa; }
-        .pay-btn { display: block; width: 100%; padding: 12px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; cursor: pointer; border: none; }
+        .payment-card h3 { color: #d4af37; margin-bottom: 10px; font-size: 1.05rem; line-height: 1.25; min-height: 2.5em; display: flex; align-items: center; justify-content: center; }
+        .address-box { background: #000; padding: 9px; border-radius: 6px; font-family: monospace; font-size: 0.74rem; line-height: 1.3; word-break: break-all; margin-top: 8px; color: #b6bec9; min-height: 52px; display: flex; align-items: center; justify-content: center; }
+        .pay-btn { display: block; width: 100%; padding: 11px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10px; cursor: pointer; border: none; }
         .rev-btn { background: #fff; color: #000; }
         .pp-btn { background: #0070ba; color: #fff; }
         .btc-btn { background: #f7931a; color: #fff; }
         .ltc-btn { background: #345d9d; color: #fff; }
+        .etc-btn { background: #328332; color: #fff; }
+        .usdc-btn { background: #2775ca; color: #fff; }
         .discord-btn { background: #5865F2; color: #fff; display: inline-block; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
         .discord-btn:hover { background: #4752C4; transform: translateY(-2px); }
     </style>
@@ -77,6 +82,20 @@
                 <h3>Revolut</h3>
                 <p style="font-size: 0.8rem; margin-bottom: 10px;">Instant bank transfer.</p>
                 <button class="pay-btn rev-btn" onclick="window.open('https://revolut.me/gunsz', '_blank')">Pay @gunsz</button>
+            </div>
+
+            <div class="payment-card" data-tilt>
+                <h3>Ethereum ETC</h3>
+                <div class="address-box" id="etc-address">0xBA584fd98e1c177479C2d027C5cAD645fE3c7D1a</div>
+                <p style="font-size: 0.8rem; margin-top: 10px; margin-bottom: 10px;">Make Sure to Send the Exact Amount.</p>
+                <button class="pay-btn etc-btn" onclick="openETCWallet(this)">Open in Wallet</button>
+            </div>
+
+            <div class="payment-card" data-tilt>
+                <h3>USDC</h3>
+                <div class="address-box" id="usdc-address">0xd3B535926beB5354922cBF25C14d1200EFa94C89</div>
+                <p style="font-size: 0.8rem; margin-top: 10px; margin-bottom: 10px;">Make Sure to Send the Exact Amount.</p>
+                <button class="pay-btn usdc-btn" onclick="openUSDCWallet(this)">Open in Wallet</button>
             </div>
         </div>
 
@@ -136,6 +155,26 @@
                 copyToClipboard(address, 'Litecoin address', button);
             } else {
                 alert('Please set a valid Litecoin address first.');
+            }
+        }
+
+        function openETCWallet(button) {
+            const address = document.getElementById('etc-address').innerText.trim();
+            if (address && address.length > 0) {
+                window.location.href = `ethereum:${address}`;
+                copyToClipboard(address, 'Ethereum ETC address', button);
+            } else {
+                alert('Please set a valid Ethereum ETC address first.');
+            }
+        }
+
+        function openUSDCWallet(button) {
+            const address = document.getElementById('usdc-address').innerText.trim();
+            if (address && address.length > 0) {
+                window.location.href = `ethereum:${address}`;
+                copyToClipboard(address, 'USDC address', button);
+            } else {
+                alert('Please set a valid USDC address first.');
             }
         }
 
