@@ -20,6 +20,25 @@
         .uptime-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
         .tool-preview { margin: 20px 0 24px; }
         .tool-preview img { width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: #111; }
+        .insanesec-slider { position: relative; }
+        .insanesec-slider .slide-image { display: none; }
+        .insanesec-slider .slide-image.active { display: block; }
+        .insanesec-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 999px;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .insanesec-slider-btn:hover { border-color: var(--gold-solid); }
+        .insanesec-slider-btn.prev { left: 10px; }
+        .insanesec-slider-btn.next { right: 10px; }
         .features-tab { margin-top: 24px; padding: 20px 24px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; }
         .features-tab h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
         .features-tab p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.5; margin: 0; }
@@ -71,8 +90,11 @@
         <div class="rlswitch-layout">
             <div class="rlswitch-left">
                 <h1 class="product-title">Insanesec C2 <span class="uptime-badge">Uptime 100%</span></h1>
-                <div class="tool-preview">
-                    <img src="insanesec.png" alt="Insanesec C2">
+                <div class="tool-preview insanesec-slider" id="insanesec-slider">
+                    <img src="insanesec.png" alt="Insanesec C2" class="slide-image active">
+                    <img src="InsanesecMethods.png" alt="Insanesec Methods" class="slide-image">
+                    <button type="button" class="insanesec-slider-btn prev" id="insanesec-prev" aria-label="Previous image">‹</button>
+                    <button type="button" class="insanesec-slider-btn next" id="insanesec-next" aria-label="Next image">›</button>
                 </div>
                 <div class="features-tab">
                     <h3>Description</h3>
@@ -84,70 +106,77 @@
                     <p class="method-list">tls, http, httpsbyp, httpsbomb, browser, L7guns, L7bot</p>
                     <h4>Layer 4s</h4>
                     <p class="method-list">udp, sudp, dns, ntp, ssh, pps, vse, wsd, tcp, ovh, ovhpps, mixamp, ldap, raknet, handshake, tcp-amp, tcpsynbyp, tcpwra, nuketcp, tcpack, fivem, rleague, pubg, coldwar, game, gamesamp, udpbot, tcpbot, ovhbot, grebot, udpbypbot, stdbot</p>
+                    <h4>Add Ons</h4>
+                    <p class="method-list">
+                        Add On #1 - Basic To VIP €25<br>
+                        Add On #2 - VIP To Ultimate €200<br>
+                        Add On #3 - 1+ Conc €25<br>
+                        Add On #4 - 60+ Secs €25
+                    </p>
                 </div>
             </div>
 
             <div class="rlswitch-right">
                 <div class="price-row">
-                    <span class="main-price" id="display-price">€20.00</span>
+                    <span class="main-price" id="display-price">€25.00</span>
                     <span class="stock" id="display-stock">In Stock</span>
                 </div>
 
                 <label class="variant-label">Variant</label>
                 <div class="variant-options">
-                    <div class="variant-option selected" data-name="Monthly Plan #1" data-price="20" data-stock="In Stock">
+                    <div class="variant-option selected" data-name="Basic Monthly Plan #1" data-price="25" data-stock="In Stock">
                         <div>
-                            <span class="name">Monthly Plan #1</span>
-                            <span class="stock-small">1 Conc | 60 Sec | All Methods</span>
+                            <span class="name">Basic Monthly Plan #1</span>
+                            <span class="stock-small">1 Conc | 60 Sec | Basic Methods</span>
                         </div>
-                        <span class="price">€20.00</span>
+                        <span class="price">€25.00</span>
                     </div>
-                    <div class="variant-option" data-name="Monthly Plan #2" data-price="30" data-stock="In Stock">
+                    <div class="variant-option" data-name="VIP Monthly Plan #2" data-price="40" data-stock="In Stock">
                         <div>
-                            <span class="name">Monthly Plan #2</span>
-                            <span class="stock-small">2 Concs | 120 Sec | All Methods</span>
+                            <span class="name">VIP Monthly Plan #2</span>
+                            <span class="stock-small">2 Concs | 120 Sec | Basic &amp; VIP Methods</span>
                         </div>
-                        <span class="price">€30.00</span>
+                        <span class="price">€40.00</span>
                     </div>
-                    <div class="variant-option" data-name="Monthly Plan #3" data-price="45" data-stock="In Stock">
+                    <div class="variant-option" data-name="VIP Monthly Plan #3" data-price="55" data-stock="In Stock">
                         <div>
-                            <span class="name">Monthly Plan #3</span>
-                            <span class="stock-small">3 Concs | 200 Sec | All Methods</span>
+                            <span class="name">VIP Monthly Plan #3</span>
+                            <span class="stock-small">3 Concs | 200 Sec | Basic &amp; VIP Methods</span>
                         </div>
-                        <span class="price">€45.00</span>
+                        <span class="price">€55.00</span>
                     </div>
                     <div class="variant-option" data-name="C2 Lifetime #1" data-price="120" data-stock="In Stock">
                         <div>
                             <span class="name">C2 Lifetime #1</span>
-                            <span class="stock-small">2 Concs | 60 Sec | All Methods</span>
+                            <span class="stock-small">2 Concs | 60 Sec | Basic Methods</span>
                         </div>
                         <span class="price">€120.00</span>
                     </div>
                     <div class="variant-option" data-name="C2 Lifetime #2" data-price="175" data-stock="In Stock">
                         <div>
                             <span class="name">C2 Lifetime #2</span>
-                            <span class="stock-small">4 Concs | 120 Sec | All Methods</span>
+                            <span class="stock-small">4 Concs | 120 Sec | Basic &amp; VIP Methods</span>
                         </div>
                         <span class="price">€175.00</span>
                     </div>
                     <div class="variant-option" data-name="C2 Lifetime #3" data-price="225" data-stock="In Stock">
                         <div>
                             <span class="name">C2 Lifetime #3</span>
-                            <span class="stock-small">6 Concs | 300 Sec | All Methods</span>
+                            <span class="stock-small">6 Concs | 300 Sec | Basic &amp; VIP Methods</span>
                         </div>
                         <span class="price">€225.00</span>
                     </div>
                     <div class="variant-option" data-name="C2 Lifetime #4" data-price="300" data-stock="In Stock">
                         <div>
                             <span class="name">C2 Lifetime #4</span>
-                            <span class="stock-small">10 Concs | 300 Sec | All Methods</span>
+                            <span class="stock-small">10 Concs | 300 Sec | Basic &amp; VIP Methods</span>
                         </div>
                         <span class="price">€300.00</span>
                     </div>
                     <div class="variant-option" data-name="C2 Lifetime #5" data-price="500" data-stock="In Stock">
                         <div>
                             <span class="name">C2 Lifetime #5</span>
-                            <span class="stock-small">10 Concs | 1200 Sec | Homeholder Access</span>
+                            <span class="stock-small">10 Concs | 1200 Sec | Basic, VIP, Ultimate &amp; Homeholder Methods Access</span>
                         </div>
                         <span class="price">€500.00</span>
                     </div>
@@ -202,7 +231,21 @@
         cartTrigger.onclick = () => cartSidebar.classList.add('open');
         closeCart.onclick = () => cartSidebar.classList.remove('open');
 
-        let selectedVariant = { name: 'Monthly Plan #1', price: 20, stock: 'In Stock' };
+        const sliderImages = Array.from(document.querySelectorAll('#insanesec-slider .slide-image'));
+        let sliderIndex = 0;
+        function showSliderImage(index) {
+            sliderImages.forEach((img, i) => img.classList.toggle('active', i === index));
+        }
+        document.getElementById('insanesec-prev').addEventListener('click', () => {
+            sliderIndex = (sliderIndex - 1 + sliderImages.length) % sliderImages.length;
+            showSliderImage(sliderIndex);
+        });
+        document.getElementById('insanesec-next').addEventListener('click', () => {
+            sliderIndex = (sliderIndex + 1) % sliderImages.length;
+            showSliderImage(sliderIndex);
+        });
+
+        let selectedVariant = { name: 'Basic Monthly Plan #1', price: 25, stock: 'In Stock' };
         document.querySelectorAll('.variant-option').forEach(el => {
             el.addEventListener('click', () => {
                 document.querySelectorAll('.variant-option').forEach(o => o.classList.remove('selected'));

@@ -46,7 +46,7 @@
         .quantity-control button:hover { background: rgba(255,255,255,0.1); }
         .quantity-control input { width: 52px; height: 44px; text-align: center; font-size: 1rem; background: rgba(0,0,0,0.3); border: none; border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); color: #fff; }
         .quantity-control input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-        .quantity-control input[type=number] { -moz-appearance: textfield; }
+        .quantity-control input[type=number] { -moz-appearance: textfield; appearance: textfield; }
         .btn-add-cart { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 20px; background: linear-gradient(135deg, #d4af37 0%, #f9e2af 50%, #b8860b 100%); color: #0a0a0a; border: none; border-radius: 10px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s; margin-bottom: 12px; }
         .btn-add-cart:hover { filter: brightness(1.1); }
         .btn-buy-now { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 20px; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s; }
@@ -89,32 +89,32 @@
 
             <div class="rlswitch-right">
                 <div class="price-row">
-                    <span class="main-price" id="display-price">€20.00</span>
+                    <span class="main-price" id="display-price">€25.00</span>
                     <span class="stock" id="display-stock">In Stock</span>
                 </div>
 
                 <label class="variant-label">Variant</label>
                 <div class="variant-options">
-                    <div class="variant-option selected" data-name="Monthly Plan #1" data-price="20" data-stock="In Stock">
+                    <div class="variant-option selected" data-name="Monthly Plan #1 Basic" data-price="25" data-stock="In Stock">
                         <div>
-                            <span class="name">Monthly Plan #1</span>
-                            <span class="stock-small">1 Conc | 60 Sec | All Methods</span>
+                            <span class="name">Monthly Plan #1 Basic</span>
+                            <span class="stock-small">1 Conc | 60 Sec | Basic Methods</span>
                         </div>
-                        <span class="price">€20.00</span>
+                        <span class="price">€25.00</span>
                     </div>
-                    <div class="variant-option" data-name="Monthly Plan #2" data-price="30" data-stock="In Stock">
+                    <div class="variant-option" data-name="VIP Monthly Plan #2" data-price="40" data-stock="In Stock">
                         <div>
-                            <span class="name">Monthly Plan #2</span>
-                            <span class="stock-small">2 Concs | 120 Sec | All Methods</span>
+                            <span class="name">VIP Monthly Plan #2</span>
+                            <span class="stock-small">2 Concs | 120 Sec | Basic &amp; VIP Methods</span>
                         </div>
-                        <span class="price">€30.00</span>
+                        <span class="price">€40.00</span>
                     </div>
-                    <div class="variant-option" data-name="Monthly Plan #3" data-price="45" data-stock="In Stock">
+                    <div class="variant-option" data-name="VIP Monthly Plan #3" data-price="55" data-stock="In Stock">
                         <div>
-                            <span class="name">Monthly Plan #3</span>
-                            <span class="stock-small">3 Concs | 200 Sec | All Methods</span>
+                            <span class="name">VIP Monthly Plan #3</span>
+                            <span class="stock-small">3 Concs | 200 Sec | Basic &amp; VIP Methods</span>
                         </div>
-                        <span class="price">€45.00</span>
+                        <span class="price">€55.00</span>
                     </div>
                     <div class="variant-option" data-name="C2 Lifetime #1" data-price="120" data-stock="In Stock">
                         <div>
@@ -202,7 +202,7 @@
         cartTrigger.onclick = () => cartSidebar.classList.add('open');
         closeCart.onclick = () => cartSidebar.classList.remove('open');
 
-        let selectedVariant = { name: 'Monthly Plan #1', price: 20, stock: 'In Stock' };
+        let selectedVariant = { name: 'Monthly Plan #1 Basic', price: 25, stock: 'In Stock' };
         document.querySelectorAll('.variant-option').forEach(el => {
             el.addEventListener('click', () => {
                 document.querySelectorAll('.variant-option').forEach(o => o.classList.remove('selected'));
