@@ -1,0 +1,43 @@
+*** Begin Patch
+*** Update File: c:\Users\BO7ki\Desktop\Insanesec Website\styles.css
+@@
+ .product-visual {
+   aspect-ratio: 4 / 3;
+   display: flex;
+@@
+   position: relative;
+ }
+ 
++.product-img {
++  width: 100%;
++  height: 100%;
++  object-fit: contain;
++  object-position: center;
++  padding: 0.4rem;
++  display: block;
++  z-index: 1;
++}
++
+ .product-visual::after {
+   content: "";
+   position: absolute;
+@@
+ .product-key-option.is-active {
+   border-color: rgba(255, 31, 77, 0.55);
+   box-shadow: 0 0 0 1px rgba(255, 31, 77, 0.2);
+ }
++
++.insanesec-net-page .product-key-options {
++  gap: 0.7rem;
++}
++
++.insanesec-net-page .product-key-option {
++  padding: 0.82rem 0.95rem;
++  font-size: 1rem;
++  border-radius: 11px;
++}
++
++.insanesec-net-page .product-key-option strong {
++  font-size: 0.84rem;
++}
+*** End Patch

@@ -1,0 +1,28 @@
+*** Begin Patch
+*** Update File: c:\Users\BO7ki\Desktop\Insanesec Website\styles.css
+@@
+ .product-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+   gap: 1.5rem;
+   justify-items: center;
+ }
++
++body.cod-four-grid .shop {
++  max-width: 1540px;
++}
++
++body.cod-four-grid .product-grid {
++  grid-template-columns: repeat(4, minmax(260px, 1fr));
++}
+@@
+ @media (max-width: 768px) {
+@@
+ }
++
++@media (max-width: 1280px) {
++  body.cod-four-grid .product-grid {
++    grid-template-columns: repeat(2, minmax(280px, 1fr));
++  }
++}
+*** End Patch

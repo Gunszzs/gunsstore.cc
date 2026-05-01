@@ -1,0 +1,10 @@
+*** Begin Patch
+*** Update File: c:\Users\BO7ki\Desktop\Insanesec Website\styles.css
+@@
+-@media (max-width: 1280px) {
++@media (min-width: 769px) and (max-width: 1280px) {
+   body.cod-four-grid .product-grid {
+     grid-template-columns: repeat(2, minmax(280px, 1fr));
+   }
+ }
+*** End Patch

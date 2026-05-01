@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insanesec — Checkout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav-sym" aria-label="Main">
+      <div class="nav-cluster nav-cluster--left">
+        <a href="index.html#shop" class="nav-link">Shop</a>
+        <a href="index.html#community" class="nav-link">Community</a>
+        <a href="index.html#community-videos" class="nav-link">Videos</a>
+      </div>
+      <a href="index.html#top" class="brand" aria-current="page">
+        <span class="brand-inner"><span class="brand-i">I</span>nsanesec</span>
+      </a>
+      <div class="nav-cluster nav-cluster--right">
+        <a href="index.html#community-invites" class="nav-link">Join</a>
+        <a href="index.html#support" class="nav-link">Support</a>
+        <a href="index.html#shop" class="nav-link">Cart</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="shop">
+    <div class="shop-toolbar shop-toolbar--no-divider">
+      <a class="btn-back" href="index.html#shop">← Continue Shopping</a>
+      <p class="shop-context">Checkout</p>
+    </div>
+
+    <div class="section-head">
+      <h2>Checkout</h2>
+      <p class="section-sub">Review your selected products before payment.</p>
+    </div>
+
+    <section class="checkout-shell">
+      <div class="checkout-main">
+        <div class="checkout-items" id="checkoutItems"></div>
+        <div class="checkout-pay-panel">
+          <fieldset class="checkout-pay" id="checkoutPayFieldset" disabled>
+            <legend class="checkout-pay-legend">Payment</legend>
+            <p class="checkout-pay-hint">Choose how you will fund this. We reply with the exact handle, IBAN, or on-chain address, amount, and any memo—wrong network or asset can lose funds, so wait for our message.</p>
+            <div class="checkout-pay-options">
+              <label class="checkout-pay-option">
+                <input type="radio" name="checkoutPayment" value="revolut" checked />
+                <span class="checkout-pay-option__body">
+                  <span class="checkout-pay-option__name">Revolut</span>
+                  <span class="checkout-pay-option__meta">Opens Revolut request-money flow in a new tab. Add your order reference in the note if you can.</span>
+                  <a href="https://revolut.me/gunsz" class="btn btn-outline checkout-pay-revolut-btn" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Open Revolut payment page</a>
+                </span>
+              </label>
+
+              <label class="checkout-pay-option">
+                <input type="radio" name="checkoutPayment" value="bitcoin" />
+                <span class="checkout-pay-option__body">
+                  <span class="checkout-pay-option__name">Bitcoin</span>
+                  <span class="checkout-pay-option__meta">Send only native BTC on-chain. Wrong asset or network can mean lost funds.</span>
+                  <div class="checkout-pay-address" translate="no">
+                    <div class="checkout-pay-address-head">
+                      <span class="checkout-pay-address-label">BTC address</span>
+                      <span class="checkout-pay-copy" role="button" tabindex="0" data-copy="34A4bJFd7QU34zP6r3vBSjw7hp2hSQZaHx" aria-label="Copy BTC address">Copy</span>
+                    </div>
+                    <code class="checkout-pay-address-value">34A4bJFd7QU34zP6r3vBSjw7hp2hSQZaHx</code>
+                  </div>
+                </span>
+              </label>
+
+              <label class="checkout-pay-option">
+                <input type="radio" name="checkoutPayment" value="litecoin" />
+                <span class="checkout-pay-option__body">
+                  <span class="checkout-pay-option__name">Litecoin</span>
+                  <span class="checkout-pay-option__meta">Send only native LTC on Litecoin mainnet.</span>
+                  <div class="checkout-pay-address" translate="no">
+                    <div class="checkout-pay-address-head">
+                      <span class="checkout-pay-address-label">LTC address</span>
+                      <span class="checkout-pay-copy" role="button" tabindex="0" data-copy="MNnZmHx76W5ZXMY4mAg3uLswbrtv9WpRc6" aria-label="Copy LTC address">Copy</span>
+                    </div>
+                    <code class="checkout-pay-address-value">MNnZmHx76W5ZXMY4mAg3uLswbrtv9WpRc6</code>
+                  </div>
+                </span>
+              </label>
+
+              <label class="checkout-pay-option">
+                <input type="radio" name="checkoutPayment" value="usdc" />
+                <span class="checkout-pay-option__body">
+                  <span class="checkout-pay-option__name">USDC</span>
+                  <span class="checkout-pay-option__meta">This address is USDC on Ethereum mainnet only—not Polygon, Base, or Solana.</span>
+                  <div class="checkout-pay-address" translate="no">
+                    <div class="checkout-pay-address-head">
+                      <span class="checkout-pay-address-label">USDC address</span>
+                      <span class="checkout-pay-copy" role="button" tabindex="0" data-copy="0xd3B535926beB5354922cBF25C14d1200EFa94C89" aria-label="Copy USDC address">Copy</span>
+                    </div>
+                    <code class="checkout-pay-address-value">0xd3B535926beB5354922cBF25C14d1200EFa94C89</code>
+                  </div>
+                </span>
+              </label>
+
+              <label class="checkout-pay-option">
+                <input type="radio" name="checkoutPayment" value="solana" />
+                <span class="checkout-pay-option__body">
+                  <span class="checkout-pay-option__name">Solana</span>
+                  <span class="checkout-pay-option__meta">Solana mainnet—native SOL or tokens only when we confirm.</span>
+                  <div class="checkout-pay-address" translate="no">
+                    <div class="checkout-pay-address-head">
+                      <span class="checkout-pay-address-label">SOL address</span>
+                      <span class="checkout-pay-copy" role="button" tabindex="0" data-copy="MxVFVmAS1EFULS1nHA8vBPe82LdpGtzPkMaWZF37FHt" aria-label="Copy Solana address">Copy</span>
+                    </div>
+                    <code class="checkout-pay-address-value">MxVFVmAS1EFULS1nHA8vBPe82LdpGtzPkMaWZF37FHt</code>
+                  </div>
+                </span>
+              </label>
+
+              <label class="checkout-pay-option">
+                <input type="radio" name="checkoutPayment" value="ethereum" />
+                <span class="checkout-pay-option__body">
+                  <span class="checkout-pay-option__name">Ethereum</span>
+                  <span class="checkout-pay-option__meta">Ethereum mainnet (L1)—ETH or tokens we confirm. You cover gas.</span>
+                  <div class="checkout-pay-address" translate="no">
+                    <div class="checkout-pay-address-head">
+                      <span class="checkout-pay-address-label">ETH address</span>
+                      <span class="checkout-pay-copy" role="button" tabindex="0" data-copy="0xBA584fd98e1c177479C2d027C5cAD645fE3c7D1a" aria-label="Copy Ethereum address">Copy</span>
+                    </div>
+                    <code class="checkout-pay-address-value">0xBA584fd98e1c177479C2d027C5cAD645fE3c7D1a</code>
+                  </div>
+                </span>
+              </label>
+            </div>
+            <p class="checkout-pay-error" id="checkoutPayError" hidden role="alert"></p>
+          </fieldset>
+        </div>
+      </div>
+
+      <aside class="checkout-summary">
+        <h3>Order Summary</h3>
+        <div class="checkout-total-row">
+          <span>Total</span>
+          <strong id="checkoutTotal">$0.00</strong>
+        </div>
+        <p class="checkout-summary-note">Join the discord for quicker purchase &amp; deliverables: <a href="https://discord.gg/insanesec" target="_blank" rel="noopener noreferrer">discord.gg/insanesec</a></p>
+      </aside>
+    </section>
+  </main>
+
+<footer class="site-footer">
+  <div class="footer-sym">
+    <span>© Insanesec</span>
+    <span class="footer-dot">◆</span>
+    <span>2026</span>
+  </div>
+</footer>
+  <script src="checkout.js"></script>
+</body>
+</html>

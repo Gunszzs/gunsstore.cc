@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insanesec | Insane Security</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav-sym" aria-label="Main">
+      <div class="nav-cluster nav-cluster--left">
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#community" class="nav-link">Community</a>
+        <a href="#community-videos" class="nav-link">Videos</a>
+      </div>
+      <a href="#top" class="brand" aria-current="page">
+        <span class="brand-inner"><span class="brand-i">I</span>nsanesec</span>
+      </a>
+      <div class="nav-cluster nav-cluster--right">
+        <a href="#community-invites" class="nav-link">Join</a>
+        <a href="#support" class="nav-link">Support</a>
+        <button type="button" class="nav-link cart-trigger" id="cartBtn" aria-expanded="false" aria-controls="cartPanel">
+          Cart <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero hero--vault" id="top">
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-mirror">
+        <div class="hero-col hero-col--left">
+          <div class="hero-panel">
+            <h1 class="hero-title">
+              <span class="glitch" data-text="LOCK IN">LOCK IN</span>
+            </h1>
+            <p class="hero-copy">Spoofers, unlocks, nets—tiered keys, straight specs, and one lane per stack so you load product, not noise.</p>
+            <a href="#shop" class="btn btn-outline hero-cta">Open the vault</a>
+          </div>
+        </div>
+        <div class="hero-axis" aria-hidden="true">
+          <div class="axis-line"></div>
+          <div class="axis-glow"></div>
+          <div class="axis-core"></div>
+        </div>
+        <div class="hero-col hero-col--right">
+          <div class="hero-panel hero-panel--mirror">
+            <h1 class="hero-title hero-title--mirror">
+              <span class="glitch glitch--mirror" data-text="STAND OUT">STAND OUT</span>
+            </h1>
+            <p class="hero-copy">Cart and checkout stay lean—what you add is what you pay for. Discord is one hop when you want a human in the loop.</p>
+            <a href="#community-invites" class="btn btn-outline hero-cta">Join Discord</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop" id="shop">
+      <div class="section-head">
+        <h2>Products</h2>
+        <p class="section-sub" id="shopSub">Choose a category to see what we stock.</p>
+      </div>
+      <div class="shop-stage">
+        <div class="shop-toolbar" id="shopToolbar" hidden>
+          <button type="button" class="btn-back" id="shopBack">← All categories</button>
+          <p class="shop-context" id="shopContext" aria-live="polite"></p>
+        </div>
+        <div class="category-grid" id="categoryGrid" aria-label="Product categories"></div>
+        <div class="product-grid" id="productGrid" hidden></div>
+      </div>
+    </section>
+
+    <section class="about about--showcase" id="about">
+      <p class="about-lede">Shop lanes stacked like racks—live SKUs, surgical spec sheets, checkout that locks without drama.</p>
+      <div class="about-split">
+        <article class="about-card about-card--vision">
+          <span class="about-card__holo" aria-hidden="true"></span>
+          <span class="about-card__scan" aria-hidden="true"></span>
+          <div class="about-card__content">
+            <h3>Vision</h3>
+            <p>Insanesec exists at the intersection of paranoia and craft. Every release is mirrored in QA and in aesthetics.</p>
+          </div>
+        </article>
+        <div class="about-diamond" aria-hidden="true">
+          <span class="about-diamond__burst"></span>
+        </div>
+        <article class="about-card about-card--promise about-card--alt">
+          <span class="about-card__holo" aria-hidden="true"></span>
+          <span class="about-card__scan" aria-hidden="true"></span>
+          <div class="about-card__content">
+            <h3>Promise</h3>
+            <p>Clear navigation, honest specs, and checkout that does not waste your time. What you see is what ships.</p>
+          </div>
+        </article>
+      </div>
+      <p class="about-foot">Tap <a href="#shop">Products</a>—categories, keys, and add-ons load the same insane bar you see here.</p>
+    </section>
+
+    <section class="community" id="community" aria-labelledby="community-heading">
+      <div class="section-head">
+        <h2 id="community-heading">Community</h2>
+        <p class="section-sub">Latest drops, clips, and where to hang out.</p>
+      </div>
+
+      <div class="invite-row" id="community-invites">
+        <a class="invite-card invite-card--discord" href="https://discord.gg/YOUR_INVITE" target="_blank" rel="noopener noreferrer" data-invite="discord">
+          <span class="invite-icon" aria-hidden="true">
+            <svg viewBox="0 0 127.14 96.36" role="img" focusable="false" aria-hidden="true">
+              <path fill="currentColor" d="M107.7,8.07A105.15,105.15,0,0,0,81.47.15a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,7a72.37,72.37,0,0,0-3.36-6.83A105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.68,56.6.56,80.21A105.73,105.73,0,0,0,32.71,96.36a77.7,77.7,0,0,0,6.89-11.3,68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2.06a75.57,75.57,0,0,0,64.32,0c.87.72,1.76,1.4,2.66,2.06a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.29A105.25,105.25,0,0,0,126.58,80.2C129.21,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,59.92,31,52.82S36.06,40,42.45,40s11.57,5.83,11.46,12.87S48.84,65.69,42.45,65.69Zm42.24,0c-6.27,0-11.45-5.77-11.45-12.87S78.3,40,84.69,40s11.57,5.83,11.46,12.87S91.08,65.69,84.69,65.69Z"/>
+            </svg>
+          </span>
+          <span class="invite-label">Discord</span>
+          <span class="invite-hint">Join The Discord Server</span>
+        </a>
+        <div class="invite-axis" aria-hidden="true"></div>
+        <a class="invite-card invite-card--telegram" href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" data-invite="telegram">
+          <span class="invite-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+              <path fill="currentColor" d="M21.944 2.506a1.5 1.5 0 0 0-1.56-.227L2.772 9.56a1.5 1.5 0 0 0 .138 2.83l4.613 1.54 1.54 4.613a1.5 1.5 0 0 0 2.83.138l7.281-17.612a1.5 1.5 0 0 0-.227-1.563ZM9.15 13.26l-.94 2.82-.94-2.82-2.82-.94 11.28-4.66-6.58 5.56Zm1.59 3.97-.62-1.85 4.32-3.66-3.7 5.51Z"/>
+            </svg>
+          </span>
+          <span class="invite-label">Telegram</span>
+          <span class="invite-hint">Join The Telegram Server</span>
+        </a>
+      </div>
+
+      <div class="video-split" id="community-videos">
+        <div class="video-column video-column--youtube">
+          <h3 class="video-column-title">
+            <span class="video-badge video-badge--yt">YouTube</span>
+          </h3>
+          <div id="youtubeProfileCard" class="youtube-profile" hidden></div>
+          <div class="embed-stack" id="youtubeEmbeds" aria-label="YouTube videos"></div>
+        </div>
+        <div class="video-axis" aria-hidden="true">
+          <span class="video-axis-mark"></span>
+        </div>
+        <div class="video-column video-column--tiktok">
+          <h3 class="video-column-title">
+            <span class="video-badge video-badge--tt">TikTok</span>
+          </h3>
+          <div id="tiktokProfileCard" class="tiktok-profile" hidden></div>
+          <div class="embed-stack" id="tiktokEmbeds" aria-label="TikTok videos"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="support" id="support">
+      <h2>Support</h2>
+      <p>Questions? Join us on Discord: <a href="https://discord.gg/insanesec" target="_blank" rel="noopener noreferrer">discord.gg/insanesec</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-sym">
+      <span>© Insanesec</span>
+      <span class="footer-dot">◆</span>
+      <span>2026</span>
+    </div>
+  </footer>
+
+  <aside class="cart-panel cart-panel--empty" id="cartPanel" hidden aria-label="Shopping cart">
+    <div class="cart-panel-inner">
+      <header class="cart-header">
+        <h2>Your cart</h2>
+        <button type="button" class="cart-close" id="cartClose" aria-label="Close cart">×</button>
+      </header>
+      <ul class="cart-list" id="cartList"></ul>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Total</span>
+          <strong id="cartTotal">$0.00</strong>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+    <div class="cart-scrim" id="cartScrim"></div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
