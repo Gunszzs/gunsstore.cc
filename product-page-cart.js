@@ -116,6 +116,10 @@ const PRODUCT_PAGE_CUSTOM_KEY_OPTIONS = {
     { id: "perm-life", label: "Lifetime Perm Spoofer Key", price: 40 },
   ],
 };
+const PRODUCT_PAGE_FORCED_SINGLE_OPTIONS = {
+  "rl-champion-pack": [{ id: "1m", label: "Month Key", price: 50 }],
+  "rl-mechanics-bundle": [{ id: "1m", label: "Month Key", price: 100 }],
+};
 const PRODUCT_PAGE_PRODUCT_NAMES = {
   "rl-champion-pack": "RL SWITCH 2.0",
   "rl-mechanics-bundle": "MW2 SWITCH 2.0",
@@ -401,7 +405,10 @@ function wireSellAuthCard(card) {
   let selectedDurationId = PRODUCT_PAGE_KEY_OPTIONS[0].id;
 
   let options = PRODUCT_PAGE_CUSTOM_KEY_OPTIONS[productId];
-  if (monthOnly) {
+  const forcedSingleOptions = PRODUCT_PAGE_FORCED_SINGLE_OPTIONS[productId];
+  if (Array.isArray(forcedSingleOptions) && forcedSingleOptions.length > 0) {
+    options = forcedSingleOptions.map((opt) => ({ ...opt }));
+  } else if (monthOnly) {
     const monthPrice = Number.isFinite(monthPriceOverride) ? monthPriceOverride : basePrice;
     options = [{ id: "1m", label: "Month Key", price: monthPrice }];
   } else if (!Array.isArray(options) || options.length === 0) {
