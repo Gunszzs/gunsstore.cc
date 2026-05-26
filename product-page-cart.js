@@ -11,10 +11,8 @@ document.querySelectorAll(".bo7-details").forEach((detailsEl) => {
 });
 
 const PRODUCT_PAGE_PRODUCT_KEY_PRICE_OVERRIDES = {
-  "rl-champion-pack": { "1d": 5, "3d": 10, "1w": 15, "1m": 25, life: 125 },
-  "rl-mechanics-bundle": { "1w": 25, "1m": 50, life: 200 },
-  "mw2-lootstealer": { "1m": 125, life: 250 },
-  "fivem-switch": { "1w": 25, "1m": 50, life: 200 },
+  "rl-champion-pack": { "1m": 50 },
+  "rl-mechanics-bundle": { "1m": 100 },
   "cod-mp-kit": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
   "cod-bo6-zeroaim": { "1d": 8, "1w": 20, "1m": 40 },
   "cod-bo6-ua": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
@@ -119,10 +117,9 @@ const PRODUCT_PAGE_CUSTOM_KEY_OPTIONS = {
   ],
 };
 const PRODUCT_PAGE_PRODUCT_NAMES = {
-  "rl-champion-pack": "RL Switch Rocket League",
-  "rl-mechanics-bundle": "MW2 Switch | Call Of Duty",
-  "mw2-lootstealer": "MW2 Lootstealer",
-  "fivem-switch": "Fivem Switch",
+  "rl-champion-pack": "RL SWITCH 2.0",
+  "rl-mechanics-bundle": "MW2 SWITCH 2.0",
+  "fortnite-switch-2": "FORTNITE SWITCH 2.0",
   "apex-ranked-kit": "Temporary Spoofer",
   "apex-legend-pack": "Perm Spoofer",
   "torix-temp-spoofer": "Torix: Temp Spoofer",
@@ -377,12 +374,15 @@ function renderSideCart() {
 }
 
 function wireSellAuthCard(card) {
+  if (card.dataset.comingSoon === "true") return;
+
   const productId = card.dataset.productId;
   const basePrice = Number(card.dataset.basePrice);
   const ctaLabel = card.dataset.ctaLabel || "Add to cart";
   const ctaHref = card.dataset.ctaHref || "";
   const showBuyNow = card.dataset.showBuyNow !== "false";
   const includeLifetime = card.dataset.includeLifetime === "true";
+  const monthOnly = card.dataset.monthOnly === "true";
   const hideDay = card.dataset.hideDay === "true";
   const hideWeek = card.dataset.hideWeek === "true";
   const dayPriceOverride = Number(card.dataset.dayPrice);
@@ -401,7 +401,10 @@ function wireSellAuthCard(card) {
   let selectedDurationId = PRODUCT_PAGE_KEY_OPTIONS[0].id;
 
   let options = PRODUCT_PAGE_CUSTOM_KEY_OPTIONS[productId];
-  if (!Array.isArray(options) || options.length === 0) {
+  if (monthOnly) {
+    const monthPrice = Number.isFinite(monthPriceOverride) ? monthPriceOverride : basePrice;
+    options = [{ id: "1m", label: "Month Key", price: monthPrice }];
+  } else if (!Array.isArray(options) || options.length === 0) {
     const optionsBase = PRODUCT_PAGE_KEY_OPTIONS.map((opt) => {
       if (opt.id === "1d" && Number.isFinite(dayPriceOverride)) return { ...opt, price: dayPriceOverride };
       if (opt.id === "1w" && Number.isFinite(weekPriceOverride)) return { ...opt, price: weekPriceOverride };

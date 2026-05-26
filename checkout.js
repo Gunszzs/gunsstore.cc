@@ -1,10 +1,9 @@
 const CHECKOUT_CART_KEY = "insanesec_cart_v1";
 
 const CHECKOUT_PRODUCTS = {
-  "rl-champion-pack": { name: "RL Switch Rocket League", basePrice: 39 },
-  "rl-mechanics-bundle": { name: "MW2 Switch | Call Of Duty", basePrice: 24 },
-  "mw2-lootstealer": { name: "MW2 Lootstealer", basePrice: 24 },
-  "fivem-switch": { name: "Fivem Switch", basePrice: 24 },
+  "rl-champion-pack": { name: "RL SWITCH 2.0", basePrice: 50 },
+  "rl-mechanics-bundle": { name: "MW2 SWITCH 2.0", basePrice: 100 },
+  "fortnite-switch-2": { name: "FORTNITE SWITCH 2.0", basePrice: 0 },
   "apex-ranked-kit": { name: "Temporary Spoofer", basePrice: 5 },
   "apex-legend-pack": { name: "Perm Spoofer", basePrice: 20 },
   "torix-temp-spoofer": { name: "Torix: Temp Spoofer", basePrice: 10 },
@@ -56,10 +55,8 @@ const CHECKOUT_FIXED_KEY_PRICES = {
   "1m": 50,
 };
 const CHECKOUT_PRODUCT_KEY_PRICE_OVERRIDES = {
-  "rl-champion-pack": { "1d": 5, "3d": 10, "1w": 15, "1m": 25, life: 125 },
-  "rl-mechanics-bundle": { "1w": 25, "1m": 50, life: 200 },
-  "mw2-lootstealer": { "1m": 125, life: 250 },
-  "fivem-switch": { "1w": 25, "1m": 50, life: 200 },
+  "rl-champion-pack": { "1m": 50 },
+  "rl-mechanics-bundle": { "1m": 100 },
   "cod-mp-kit": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
   "cod-bo6-zeroaim": { "1d": 8, "1w": 20, "1m": 40 },
   "cod-bo6-ua": { "1d": 5, "1w": 10, "1m": 20, life: 40 },

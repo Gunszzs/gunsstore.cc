@@ -43,7 +43,7 @@ const CATEGORIES = [
   {
     id: "rocket-league",
     name: "Insanesec Switchs",
-    blurb: "Switchs for games like Rocket League, MW2, Fivem, Fortnite, PubG, Apex, Master Switch Access & More",
+    blurb: "RL SWITCH 2.0, MW2 SWITCH 2.0, and Fortnite Switch 2.0 coming soon",
     icon: "💻",
     page: "insanesecswitchs.html",
   },
@@ -88,34 +88,26 @@ const PRODUCTS = [
   {
     id: "rl-champion-pack",
     categoryId: "rocket-league",
-    name: "RL Switch Rocket League",
-    price: 39,
-    desc: "Insanesec Best Lag Switch In Comm",
+    name: "RL SWITCH 2.0",
+    price: 50,
+    desc: "",
     icon: "⚽",
   },
   {
     id: "rl-mechanics-bundle",
     categoryId: "rocket-league",
-    name: "MW2 Switch | Call Of Duty",
-    price: 24,
-    desc: "MW2 Crash Switch",
+    name: "MW2 SWITCH 2.0",
+    price: 100,
+    desc: "",
     icon: "➤",
   },
   {
-    id: "mw2-lootstealer",
+    id: "fortnite-switch-2",
     categoryId: "rocket-league",
-    name: "MW2 Lootstealer",
-    price: 24,
-    desc: "MW2 Lootstealer",
-    icon: "✹",
-  },
-  {
-    id: "fivem-switch",
-    categoryId: "rocket-league",
-    name: "Fivem Switch",
-    price: 24,
-    desc: "Fivem Switch",
-    icon: "◆",
+    name: "FORTNITE SWITCH 2.0",
+    price: 0,
+    desc: "Coming soon",
+    icon: "🎮",
   },
   {
     id: "apex-ranked-kit",
@@ -271,10 +263,8 @@ const FIXED_KEY_PRICES = {
   "1m": 50,
 };
 const PRODUCT_KEY_PRICE_OVERRIDES = {
-  "rl-champion-pack": { "1d": 5, "3d": 10, "1w": 15, "1m": 25, life: 125 },
-  "rl-mechanics-bundle": { "1w": 25, "1m": 50, life: 200 },
-  "mw2-lootstealer": { "1m": 125, life: 250 },
-  "fivem-switch": { "1w": 25, "1m": 50, life: 200 },
+  "rl-champion-pack": { "1m": 50 },
+  "rl-mechanics-bundle": { "1m": 100 },
   "cod-mp-kit": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
   "cod-bo6-zeroaim": { "1d": 8, "1w": 20, "1m": 40 },
   "cod-bo6-ua": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
@@ -414,28 +404,36 @@ function wireProductCards(root) {
 function renderProductCards(list) {
   if (!productGrid) return;
   productGrid.innerHTML = list
-    .map(
-      (p) => `
-    <article class="product-card" data-id="${p.id}">
+    .map((p) => {
+      const durations = keyDurationsForProduct(p.id);
+      const comingSoon = durations.length === 0;
+      const keySelectBlock = comingSoon
+        ? `<p class="product-coming-soon">Coming soon</p>`
+        : `<label class="key-select-wrap">
+          <span class="key-select-label">Key duration</span>
+          <select class="key-select" aria-label="Select key duration for ${escapeHtml(p.name)}">
+            ${durations.map((k) => `<option value="${k.id}">${escapeHtml(k.label)}</option>`).join("")}
+          </select>
+        </label>`;
+      const priceBlock = comingSoon
+        ? ""
+        : `<p class="product-price">${formatMoney(p.price)} <span class="product-price-suffix">base</span></p>`;
+      const cartBlock = comingSoon
+        ? ""
+        : `<button type="button" class="btn btn-primary btn-block add-to-cart" data-id="${p.id}">Add to cart</button>`;
+      return `
+    <article class="product-card${comingSoon ? " product-card--coming-soon" : ""}" data-id="${p.id}">
       <div class="product-visual"><span class="product-icon" aria-hidden="true">${p.icon}</span></div>
       <div class="product-body">
         <h3>${escapeHtml(p.name)}</h3>
-        <p class="product-price">${formatMoney(p.price)} <span class="product-price-suffix">base</span></p>
-        <label class="key-select-wrap">
-          <span class="key-select-label">Key duration</span>
-          <select class="key-select" aria-label="Select key duration for ${escapeHtml(p.name)}">
-            ${keyDurationsForProduct(p.id)
-              .map((k) => `<option value="${k.id}">${escapeHtml(k.label)}</option>`)
-              .join("")}
-          </select>
-        </label>
-        <p class="product-desc">${escapeHtml(p.desc)}</p>
+        ${priceBlock}
+        ${keySelectBlock}
+        ${p.desc ? `<p class="product-desc">${escapeHtml(p.desc)}</p>` : ""}
         <button type="button" class="toggle-details" aria-expanded="false">Details</button>
-        <button type="button" class="btn btn-primary btn-block add-to-cart" data-id="${p.id}">Add to cart</button>
+        ${cartBlock}
       </div>
-    </article>
-  `
-    )
+    </article>`;
+    })
     .join("");
 
   wireProductCards(productGrid);
@@ -542,6 +540,9 @@ function keyDurationsForProduct(productId) {
     "addon-life-current",
   ];
   const idsByProduct = {
+    "rl-champion-pack": ["1m"],
+    "rl-mechanics-bundle": ["1m"],
+    "fortnite-switch-2": [],
     "fn-creator-pack": ["1d", "1w", "1m"],
     "fn-ignite": ["1d", "3d", "1w", "1m", "life"],
     "fn-battle-bundle": ["1d", "1w", "1m", "life"],
