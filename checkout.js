@@ -1,26 +1,11 @@
 const CHECKOUT_CART_KEY = "insanesec_cart_v1";
 
 const CHECKOUT_PRODUCTS = {
-  "rl-champion-pack": { name: "RL SWITCH 2.0", basePrice: 50 },
-  "rl-mechanics-bundle": { name: "MW2 SWITCH 2.0", basePrice: 100 },
-  "fortnite-switch-2": { name: "FORTNITE SWITCH 2.0", basePrice: 0 },
-  "apex-ranked-kit": { name: "Temporary Spoofer", basePrice: 5 },
-  "apex-legend-pack": { name: "Perm Spoofer", basePrice: 20 },
-  "torix-temp-spoofer": { name: "Torix: Temp Spoofer", basePrice: 10 },
   "cod-warzone-set": { name: "Call Of Duty Thunex BO7 External Cheat + Spoofer", basePrice: 49 },
-  "cod-mp-kit": { name: "BO7 Unlock All", basePrice: 31 },
-  "cod-bo6-zeroaim": { name: "Call Of Duty BO6 External", basePrice: 49 },
-  "cod-bo6-ua": { name: "BO6 Unlock All", basePrice: 31 },
   "pubg-survivor-kit": { name: "Insanesec Net", basePrice: 33 },
   "pubg-sniper-pack": { name: "Insanesec Net Add Ons", basePrice: 27 },
-  "val-shield": { name: "Shield: Valorant External Cheat", basePrice: 10 },
-  "val-trigger-bot": { name: "Valorant Trigger Bot", basePrice: 7 },
-  "arc-operator-kit": { name: "Valorant Unlock All", basePrice: 10 },
   "eafc-ut-pack": { name: "InsanesecAPI", basePrice: 25 },
   "eafc-club-boost": { name: "Insanesec API Add ons", basePrice: 25 },
-  "fn-battle-bundle": { name: "Torix: Fortnite Private Cheat", basePrice: 34 },
-  "fn-creator-pack": { name: "Arcane: Fortnite Cheat", basePrice: 10 },
-  "fn-ignite": { name: "Ignite: Fortnite Cheat", basePrice: 15 },
 };
 
 const CHECKOUT_DURATIONS = {
@@ -55,11 +40,6 @@ const CHECKOUT_FIXED_KEY_PRICES = {
   "1m": 50,
 };
 const CHECKOUT_PRODUCT_KEY_PRICE_OVERRIDES = {
-  "rl-champion-pack": { "1m": 50 },
-  "rl-mechanics-bundle": { "1m": 100 },
-  "cod-mp-kit": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
-  "cod-bo6-zeroaim": { "1d": 8, "1w": 20, "1m": 40 },
-  "cod-bo6-ua": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
   "pubg-survivor-kit": {
     "net-basic-1": 25,
     "net-basic-2": 40,
@@ -102,15 +82,6 @@ const CHECKOUT_PRODUCT_KEY_PRICE_OVERRIDES = {
     "addon-max-time": 200,
     "addon-life-current": 125,
   },
-  "fn-battle-bundle": { "1d": 5, "1w": 15, "1m": 30, life: 80 },
-  "fn-creator-pack": { "1d": 10, "1w": 30, "1m": 50 },
-  "fn-ignite": { "1d": 15, "3d": 20, "1w": 35, "1m": 60, life: 350 },
-  "val-shield": { "3d": 10, "1w": 20, "1m": 35 },
-  "val-trigger-bot": { "1d": 7, "1w": 15, "1m": 25 },
-  "arc-operator-kit": { "3d": 10, "1w": 15, "1m": 30, life: 50 },
-  "apex-legend-pack": { "perm-1x": 20, "perm-life": 40 },
-  "apex-ranked-kit": { "1d": 5, "1w": 10, "1m": 25, life: 50 },
-  "torix-temp-spoofer": { "3d": 10, "1w": 15, "1m": 30, life: 80 },
 };
 
 const checkoutItems = document.getElementById("checkoutItems");

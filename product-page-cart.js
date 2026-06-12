@@ -11,11 +11,6 @@ document.querySelectorAll(".bo7-details").forEach((detailsEl) => {
 });
 
 const PRODUCT_PAGE_PRODUCT_KEY_PRICE_OVERRIDES = {
-  "rl-champion-pack": { "1m": 50 },
-  "rl-mechanics-bundle": { "1m": 100 },
-  "cod-mp-kit": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
-  "cod-bo6-zeroaim": { "1d": 8, "1w": 20, "1m": 40 },
-  "cod-bo6-ua": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
   "pubg-survivor-kit": {
     "net-basic-1": 25,
     "net-basic-2": 40,
@@ -58,15 +53,6 @@ const PRODUCT_PAGE_PRODUCT_KEY_PRICE_OVERRIDES = {
     "addon-max-time": 200,
     "addon-life-current": 125,
   },
-  "fn-battle-bundle": { "1d": 5, "1w": 15, "1m": 30, life: 80 },
-  "fn-creator-pack": { "1d": 10, "1w": 30, "1m": 50 },
-  "fn-ignite": { "1d": 15, "3d": 20, "1w": 35, "1m": 60, life: 350 },
-  "val-shield": { "3d": 10, "1w": 20, "1m": 35 },
-  "val-trigger-bot": { "1d": 7, "1w": 15, "1m": 25 },
-  "arc-operator-kit": { "3d": 10, "1w": 15, "1m": 30, life: 50 },
-  "apex-ranked-kit": { "1d": 5, "1w": 10, "1m": 25, life: 50 },
-  "torix-temp-spoofer": { "3d": 10, "1w": 15, "1m": 30, life: 80 },
-  "apex-legend-pack": { "perm-1x": 20, "perm-life": 40 },
 };
 const PRODUCT_PAGE_CUSTOM_KEY_OPTIONS = {
   "pubg-survivor-kit": [
@@ -111,36 +97,15 @@ const PRODUCT_PAGE_CUSTOM_KEY_OPTIONS = {
     { id: "addon-max-time", label: "Max Time Add On (1000 Seconds)", price: 200 },
     { id: "addon-life-current", label: "Lifetime Add On To Current Plan Key", price: 125 },
   ],
-  "apex-legend-pack": [
-    { id: "perm-1x", label: "One Time Use Spoofer Key", price: 20 },
-    { id: "perm-life", label: "Lifetime Perm Spoofer Key", price: 40 },
-  ],
 };
 const PRODUCT_PAGE_FORCED_SINGLE_OPTIONS = {
-  "rl-champion-pack": [{ id: "1m", label: "Month Key", price: 50 }],
-  "rl-mechanics-bundle": [{ id: "1m", label: "Month Key", price: 100 }],
 };
 const PRODUCT_PAGE_PRODUCT_NAMES = {
-  "rl-champion-pack": "RL SWITCH 2.0",
-  "rl-mechanics-bundle": "MW2 SWITCH 2.0",
-  "fortnite-switch-2": "FORTNITE SWITCH 2.0",
-  "apex-ranked-kit": "Temporary Spoofer",
-  "apex-legend-pack": "Perm Spoofer",
-  "torix-temp-spoofer": "Torix: Temp Spoofer",
   "cod-warzone-set": "Call Of Duty Thunex BO7 External Cheat + Spoofer",
-  "cod-mp-kit": "BO7 Unlock All",
-  "cod-bo6-zeroaim": "Call Of Duty BO6 External",
-  "cod-bo6-ua": "BO6 Unlock All",
   "pubg-survivor-kit": "Insanesec Net",
   "pubg-sniper-pack": "Insanesec Net Add Ons",
-  "val-shield": "Shield: Valorant External Cheat",
-  "val-trigger-bot": "Valorant Trigger Bot",
-  "arc-operator-kit": "Valorant Unlock All",
   "eafc-ut-pack": "InsanesecAPI",
   "eafc-club-boost": "Insanesec API Add ons",
-  "fn-battle-bundle": "Torix: Fortnite Private Cheat",
-  "fn-creator-pack": "Arcane: Fortnite Cheat",
-  "fn-ignite": "Ignite: Fortnite Cheat",
 };
 
 const PRODUCT_PAGE_CART_STORAGE_KEY = "insanesec_cart_v1";

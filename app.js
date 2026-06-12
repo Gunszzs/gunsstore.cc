@@ -6,7 +6,7 @@
  * - YouTube channel: optional `youtubeChannel` renders a channel strip; add video ids for embeds below it.
  */
 const COMMUNITY = {
-  discordInviteUrl: "https://discord.gg/insanesec",
+  discordInviteUrl: "https://discord.gg/Dt4DDpKt6K",
   telegramUrl: "https://t.me/insanesecot",
   youtubeChannel: {
     channelUrl: "https://www.youtube.com/@Gunszzzs",
@@ -36,16 +36,9 @@ const CATEGORIES = [
   {
     id: "call-of-duty",
     name: "Call of Duty",
-    blurb: "Call Of Duty BO7, BO6, MWIII, MWII and Unlock Alls",
+    blurb: "Call Of Duty Thunex BO7 External Cheat + Spoofer",
     icon: "🏹",
     page: "callofduty.html",
-  },
-  {
-    id: "rocket-league",
-    name: "Insanesec Switchs",
-    blurb: "RL SWITCH 2.0, MW2 SWITCH 2.0, and Fortnite Switch 2.0 coming soon",
-    icon: "💻",
-    page: "insanesecswitchs.html",
   },
   {
     id: "pubg",
@@ -55,84 +48,15 @@ const CATEGORIES = [
     page: "Insanesecnet.html",
   },
   {
-    id: "valorant",
-    name: "Valorant",
-    blurb: "",
-    icon: "𝕍",
-    page: "valorant.html",
-  },
-  {
     id: "eafc-2026",
     name: "Insanesec API",
     blurb: "API keys, methods, and integration access.",
     icon: "{}",
     page: "insanesecplans.html",
   },
-  {
-    id: "fortnite",
-    name: "Fortnite",
-    blurb: "Fortnite Cheats, Arcane, ignite & Torix Private Cheat",
-    icon: "🎮",
-    page: "fortnite.html",
-  },
-  {
-    id: "apex-legends",
-    name: "Temp Spoofer & Perm Spoofer",
-    blurb: "Temporary and permanent HWID spoofers, serial clean passes, and ban-safety tooling.",
-    icon: "⟲",
-    page: "spoofers.html",
-  },
 ];
 
 const PRODUCTS = [
-  {
-    id: "rl-champion-pack",
-    categoryId: "rocket-league",
-    name: "RL SWITCH 2.0",
-    price: 50,
-    desc: "",
-    icon: "⚽",
-  },
-  {
-    id: "rl-mechanics-bundle",
-    categoryId: "rocket-league",
-    name: "MW2 SWITCH 2.0",
-    price: 100,
-    desc: "",
-    icon: "➤",
-  },
-  {
-    id: "fortnite-switch-2",
-    categoryId: "rocket-league",
-    name: "FORTNITE SWITCH 2.0",
-    price: 0,
-    desc: "Coming soon",
-    icon: "🎮",
-  },
-  {
-    id: "apex-ranked-kit",
-    categoryId: "apex-legends",
-    name: "Temporary Spoofer",
-    price: 5,
-    desc: "Session-based HWID and serial spoofing for quick clean boots and safer queues.",
-    icon: "⟲",
-  },
-  {
-    id: "apex-legend-pack",
-    categoryId: "apex-legends",
-    name: "Perm Spoofer",
-    price: 20,
-    desc: "Persistent HWID and serial spoofing that survives reboots until you choose to restore.",
-    icon: "∞",
-  },
-  {
-    id: "torix-temp-spoofer",
-    categoryId: "apex-legends",
-    name: "Torix: Temp Spoofer",
-    price: 10,
-    desc: "Torix temporary spoof flow for quick session resets and clean relaunches.",
-    icon: "⟲",
-  },
   {
     id: "cod-warzone-set",
     categoryId: "call-of-duty",
@@ -140,14 +64,6 @@ const PRODUCTS = [
     price: 49,
     desc: "",
     icon: "✹",
-  },
-  {
-    id: "cod-mp-kit",
-    categoryId: "call-of-duty",
-    name: "BO7 Unlock All",
-    price: 31,
-    desc: "Small-map class presets and movement-first objective routes.",
-    icon: "✦",
   },
   {
     id: "pubg-survivor-kit",
@@ -166,30 +82,6 @@ const PRODUCTS = [
     icon: "◌",
   },
   {
-    id: "val-shield",
-    categoryId: "valorant",
-    name: "Shield: Valorant External Cheat",
-    price: 10,
-    desc: "",
-    icon: "◉",
-  },
-  {
-    id: "arc-operator-kit",
-    categoryId: "valorant",
-    name: "Valorant Unlock All",
-    price: 10,
-    desc: "",
-    icon: "◍",
-  },
-  {
-    id: "val-trigger-bot",
-    categoryId: "valorant",
-    name: "Valorant Trigger Bot",
-    price: 7,
-    desc: "",
-    icon: "⌖",
-  },
-  {
     id: "eafc-ut-pack",
     categoryId: "eafc-2026",
     name: "InsanesecAPI",
@@ -204,30 +96,6 @@ const PRODUCTS = [
     price: 25,
     desc: "Optional modules, extended quotas, and premium API capabilities.",
     icon: "[]",
-  },
-  {
-    id: "fn-battle-bundle",
-    categoryId: "fortnite",
-    name: "Torix: Fortnite Private Cheat",
-    price: 34,
-    desc: "",
-    icon: "★",
-  },
-  {
-    id: "fn-creator-pack",
-    categoryId: "fortnite",
-    name: "Arcane: Fortnite Cheat",
-    price: 10,
-    desc: "",
-    icon: "✪",
-  },
-  {
-    id: "fn-ignite",
-    categoryId: "fortnite",
-    name: "Ignite: Fortnite Cheat",
-    price: 15,
-    desc: "",
-    icon: "✦",
   },
 ];
 
@@ -263,11 +131,6 @@ const FIXED_KEY_PRICES = {
   "1m": 50,
 };
 const PRODUCT_KEY_PRICE_OVERRIDES = {
-  "rl-champion-pack": { "1m": 50 },
-  "rl-mechanics-bundle": { "1m": 100 },
-  "cod-mp-kit": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
-  "cod-bo6-zeroaim": { "1d": 8, "1w": 20, "1m": 40 },
-  "cod-bo6-ua": { "1d": 5, "1w": 10, "1m": 20, life: 40 },
   "pubg-survivor-kit": {
     "net-basic-1": 25,
     "net-basic-2": 40,
@@ -310,15 +173,6 @@ const PRODUCT_KEY_PRICE_OVERRIDES = {
     "addon-max-time": 200,
     "addon-life-current": 125,
   },
-  "fn-battle-bundle": { "1d": 5, "1w": 15, "1m": 30, life: 80 },
-  "fn-creator-pack": { "1d": 10, "1w": 30, "1m": 50 },
-  "fn-ignite": { "1d": 15, "3d": 20, "1w": 35, "1m": 60, life: 350 },
-  "val-shield": { "3d": 10, "1w": 20, "1m": 35 },
-  "val-trigger-bot": { "1d": 7, "1w": 15, "1m": 25 },
-  "arc-operator-kit": { "3d": 10, "1w": 15, "1m": 30, life: 50 },
-  "apex-ranked-kit": { "1d": 5, "1w": 10, "1m": 25, life: 50 },
-  "torix-temp-spoofer": { "3d": 10, "1w": 15, "1m": 30, life: 80 },
-  "apex-legend-pack": { "perm-1x": 20, "perm-life": 40 },
 };
 
 const CART_STORAGE_KEY = "insanesec_cart_v1";
@@ -352,17 +206,6 @@ function renderCategoryCards() {
   if (!categoryGrid) return;
   categoryGrid.innerHTML = CATEGORIES.map((c) => {
     const n = productsInCategory(c.id).length;
-    const valorantFoot =
-      c.id === "valorant"
-        ? `
-        <div class="valorant-range-foot valorant-range-foot--embed" aria-label="Valorant lineup">
-          <ul class="valorant-range-foot__list">
-            <li>valorant</li>
-            <li>valorant external</li>
-            <li>Unlock all &amp; Valorant triggerbot</li>
-          </ul>
-        </div>`
-        : "";
     return `
     <a class="category-card" href="${escapeHtml(c.page || "#")}">
       <span class="category-card-inner">
@@ -372,7 +215,6 @@ function renderCategoryCards() {
           <p>${escapeHtml(c.blurb)}</p>
         </span>
         <span class="category-count">${n} item${n === 1 ? "" : "s"}</span>
-        ${valorantFoot}
       </span>
     </a>`;
   }).join("");
@@ -515,10 +357,7 @@ function splitCartKey(cartKey) {
 
 function productNameFromId(productId) {
   const fallbackNames = {
-    "cod-bo6-zeroaim": "Call Of Duty BO6 External",
     "cod-warzone-set": "Call Of Duty Thunex BO7 External Cheat + Spoofer",
-    "cod-mp-kit": "BO7 Unlock All",
-    "cod-bo6-ua": "BO6 Unlock All",
   };
   return fallbackNames[productId] || productId;
 }
@@ -540,21 +379,9 @@ function keyDurationsForProduct(productId) {
     "addon-life-current",
   ];
   const idsByProduct = {
-    "rl-champion-pack": ["1m"],
-    "rl-mechanics-bundle": ["1m"],
-    "fortnite-switch-2": [],
-    "fn-creator-pack": ["1d", "1w", "1m"],
-    "fn-ignite": ["1d", "3d", "1w", "1m", "life"],
-    "fn-battle-bundle": ["1d", "1w", "1m", "life"],
-    "val-shield": ["3d", "1w", "1m"],
-    "val-trigger-bot": ["1d", "1w", "1m"],
-    "arc-operator-kit": ["3d", "1w", "1m", "life"],
     "eafc-ut-pack": apiPlanIds,
     "pubg-sniper-pack": addonPackIds,
     "eafc-club-boost": addonPackIds,
-    "apex-legend-pack": ["perm-1x", "perm-life"],
-    "apex-ranked-kit": ["1d", "1w", "1m", "life"],
-    "torix-temp-spoofer": ["3d", "1w", "1m", "life"],
   };
   const ids = idsByProduct[productId];
   if (!ids) return KEY_DURATIONS;
@@ -734,7 +561,7 @@ function initCommunity() {
     const ys = y.stats || {};
     const taglineY = y.tagline ? escapeHtml(String(y.tagline)) : "";
     const channelHref = communitySafeHref(y.channelUrl);
-    const discordShort = "discord.gg/insanesec";
+    const discordShort = "click here";
     ytProfileEl.hidden = false;
     ytProfileEl.innerHTML = `
       <div class="youtube-profile__header">
@@ -767,7 +594,7 @@ function initCommunity() {
     const storeHref = storeUrl ? communitySafeHref(storeUrl) : "#";
     const storeLabel = (p.storeLabel && String(p.storeLabel).trim()) || (storeUrl ? storeUrl.replace(/^https?:\/\//i, "").replace(/\/$/, "") : "");
     const tagline = p.tagline ? escapeHtml(String(p.tagline)) : "";
-    const discordShort = "discord.gg/insanesec";
+    const discordShort = "click here";
     const profileHref = communitySafeHref(p.profileUrl);
     ttProfileEl.hidden = false;
     ttProfileEl.innerHTML = `

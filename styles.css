@@ -84,48 +84,55 @@ main,
 }
 
 .nav-sym {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
 .nav-cluster {
   display: flex;
-  gap: 0.35rem;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .nav-cluster--left {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .nav-cluster--right {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .nav-link,
 .cart-trigger {
-  background: transparent;
-  border: 0;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 31, 77, 0.14);
+  border-radius: 999px;
   color: var(--text-muted);
   text-decoration: none;
   font-family: var(--font-display);
-  font-size: 0.66rem;
-  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.45rem 0.6rem;
+  padding: 0.65rem 1.2rem;
   cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 
 .nav-link:hover,
 .cart-trigger:hover {
   color: var(--accent-hot);
+  border-color: rgba(255, 31, 77, 0.32);
+  background: rgba(255, 31, 77, 0.06);
 }
 
 .brand {
+  flex: 0 0 auto;
   text-decoration: none;
 }
 
@@ -134,11 +141,11 @@ main,
   color: var(--text);
   border: 1px solid rgba(255, 31, 77, 0.24);
   border-radius: var(--radius);
-  padding: 0.5rem 0.75rem;
+  padding: 0.7rem 1.25rem;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(1rem, 3vw, 1.35rem);
-  letter-spacing: 0.22em;
+  font-size: clamp(1.05rem, 2.8vw, 1.45rem);
+  letter-spacing: 0.18em;
   text-transform: none;
   text-shadow: 0 0 1px rgba(255, 31, 77, 0.35);
   background: linear-gradient(135deg, rgba(255, 31, 77, 0.08), transparent 50%, rgba(255, 77, 109, 0.06));
@@ -164,8 +171,18 @@ main,
 }
 
 .cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  margin-left: 0.5rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 31, 77, 0.18);
   color: var(--accent-hot);
-  margin-left: 0.3rem;
+  font-size: 0.65rem;
+  letter-spacing: 0;
 }
 
 .hero {
@@ -539,7 +556,9 @@ body.switch-four-grid .shop {
 }
 
 body.cod-four-grid .product-grid {
-  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  grid-template-columns: minmax(280px, 380px);
+  justify-content: center;
+  margin-inline: auto;
   gap: 1.25rem;
 }
 
@@ -2838,6 +2857,132 @@ body.bo6external-page .bo7-details[open] .section-sub {
   color: #b8f5d0;
 }
 
+body.insanesec-net-detail-page .net-plans-section {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+body.insanesec-net-detail-page .net-plans-section__title {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+body.insanesec-net-detail-page .net-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.85rem;
+}
+
+body.insanesec-net-detail-page .net-plan-card {
+  border: 1px solid rgba(255, 31, 77, 0.22);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--bg-elev), var(--bg-soft));
+  padding: 1rem 1.1rem;
+}
+
+body.insanesec-net-detail-page .net-plan-card h4 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: #ffd6e1;
+}
+
+body.insanesec-net-detail-page .net-plan-card__spec {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+body.insanesec-net-detail-page .net-plan-card__note {
+  margin: 0.65rem 0 0;
+  color: var(--text);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+body.insanesec-net-detail-page .net-plan-card--reseller {
+  grid-column: 1 / -1;
+}
+
+body.insanesec-net-detail-page .net-addons-box {
+  border: 1px solid rgba(255, 31, 77, 0.28);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 1.15rem 1.25rem;
+}
+
+body.insanesec-net-detail-page .net-addons-box__title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #ffd6e1;
+}
+
+body.insanesec-net-detail-page .net-addons-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+body.insanesec-net-detail-page .net-addons-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.22);
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+body.insanesec-net-detail-page .net-addons-list strong {
+  color: var(--accent-hot);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+body.insanesec-net-detail-page .net-methods-section {
+  border: 1px solid rgba(255, 31, 77, 0.22);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--bg-elev), var(--bg-soft));
+  padding: 1.15rem 1.25rem;
+}
+
+body.insanesec-net-detail-page .api-plans-block-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #ffd6e1;
+}
+
+body.insanesec-net-detail-page .api-method-list {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1.1rem;
+}
+
+body.insanesec-net-detail-page .api-method-list:last-child {
+  margin-bottom: 0;
+}
+
 /* Checkout */
 .checkout-shell {
   display: grid;
@@ -2939,6 +3084,13 @@ body.bo6external-page .bo7-details[open] .section-sub {
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+.checkout-discord-link,
+.support-discord-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .checkout-pay {
@@ -3070,7 +3222,6 @@ body.bo6external-page .bo7-details[open] .section-sub {
 
 /* Responsive */
 @media (min-width: 769px) and (max-width: 1280px) {
-  body.cod-four-grid .product-grid,
   body.switch-four-grid .product-grid,
   body.valorant-grid-page .product-grid,
   body.fortnite-grid-page .product-grid,
@@ -3087,7 +3238,11 @@ body.bo6external-page .bo7-details[open] .section-sub {
 }
 
 @media (max-width: 768px) {
-  body.cod-four-grid .product-grid,
+  body.cod-four-grid .product-grid {
+    grid-template-columns: minmax(260px, 1fr);
+    max-width: 380px;
+  }
+
   body.switch-four-grid .product-grid,
   body.valorant-grid-page .product-grid,
   body.fortnite-grid-page .product-grid,
@@ -3118,13 +3273,17 @@ body.bo6external-page .bo7-details[open] .section-sub {
   }
 
   .nav-sym {
-    grid-template-columns: 1fr;
     gap: 0.65rem;
-    justify-items: center;
   }
 
-  .nav-cluster--left,
-  .nav-cluster--right {
-    justify-content: center;
+  .nav-link,
+  .cart-trigger {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.72rem;
+  }
+
+  .brand-inner {
+    padding: 0.55rem 1rem;
+    letter-spacing: 0.14em;
   }
 }
