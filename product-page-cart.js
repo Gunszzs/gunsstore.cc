@@ -198,8 +198,6 @@ function keyLabelFromId(keyId) {
   if (keyId === "addon-homeholder") return "Homeholder Access Key";
   if (keyId === "addon-max-time") return "Max Time Add On (1000 Seconds)";
   if (keyId === "addon-life-current") return "Lifetime Add On To Current Plan Key";
-  if (keyId === "perm-1x") return "One Time Use Spoofer Key";
-  if (keyId === "perm-life") return "Lifetime Perm Spoofer Key";
   return "Key";
 }
 

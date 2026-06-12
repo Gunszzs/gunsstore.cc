@@ -31,8 +31,6 @@ const CHECKOUT_DURATIONS = {
   "addon-homeholder": { label: "Homeholder Access Key", multiplier: 1 },
   "addon-max-time": { label: "Max Time Add On (1000 Seconds)", multiplier: 1 },
   "addon-life-current": { label: "Lifetime Add On To Current Plan Key", multiplier: 1 },
-  "perm-1x": { label: "One Time Use Spoofer Key", multiplier: 1 },
-  "perm-life": { label: "Lifetime Perm Spoofer Key", multiplier: 1 },
 };
 const CHECKOUT_FIXED_KEY_PRICES = {
   "1d": 10,
