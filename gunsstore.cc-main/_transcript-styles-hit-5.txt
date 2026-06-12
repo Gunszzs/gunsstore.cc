@@ -1,0 +1,32 @@
+*** Begin Patch
+*** Update File: c:\Users\BO7ki\Desktop\Insanesec Website\styles.css
+@@
+ .insanesec-net-page .product-key-options {
+   gap: 0.7rem;
+ }
+@@
+ .insanesec-net-page .product-key-option strong {
+   font-size: 0.84rem;
+ }
++
++.insanesec-net-page .shop {
++  max-width: 1400px;
++}
++
++.insanesec-net-page .product-grid {
++  grid-template-columns: repeat(2, minmax(380px, 520px));
++  justify-content: center;
++  gap: 2rem;
++}
++
++.insanesec-net-page .product-card {
++  max-width: 520px;
++}
++
++@media (max-width: 900px) {
++  .insanesec-net-page .product-grid {
++    grid-template-columns: 1fr;
++    justify-items: center;
++  }
++}
+*** End Patch
